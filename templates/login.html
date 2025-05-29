@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card medical-card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Log In</h2>
+            <form method="POST" action="{{ url_for('login') }}">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control") }}
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    {{ form.password.label(class="form-label") }}
+                    {{ form.password(class="form-control") }}
+                    {% if form.password.errors %}
+                        {% for error in form.password.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary btn-lg") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

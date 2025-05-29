@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Symptoms Assessment{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Autism Symptoms Assessment</h1>
+    <p class="lead mb-4">Please answer the following questions about the child's behavior. This will help identify potential signs of autism.</p>
+
+    <form method="POST" action="{{ url_for('symptoms') }}">
+        <div class="question-card">
+            <h3>Social Communication</h3>
+            <div class="mb-4">
+                <label class="form-label">Does the child consistently avoid eye contact or have difficulty maintaining it?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="eye_contact" value="yes" required id="eye_contact_yes">
+                    <label class="form-check-label" for="eye_contact_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="eye_contact" value="no" id="eye_contact_no">
+                    <label class="form-check-label" for="eye_contact_no">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <h3>Repetitive Behaviors</h3>
+            <div class="mb-4">
+                <label class="form-label">Does the child show repetitive movements or actions (such as hand flapping, rocking, or spinning)?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="repetitive_behavior" value="yes" required id="repetitive_yes">
+                    <label class="form-check-label" for="repetitive_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="repetitive_behavior" value="no" id="repetitive_no">
+                    <label class="form-check-label" for="repetitive_no">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <h3>Social Interaction</h3>
+            <div class="mb-4">
+                <label class="form-label">Does the child have difficulty interacting with other children or show limited interest in social interaction?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="social_interaction" value="yes" required id="social_yes">
+                    <label class="form-check-label" for="social_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="social_interaction" value="no" id="social_no">
+                    <label class="form-check-label" for="social_no">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Submit Assessment</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Resources & Information{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4 text-center">Resources & Information</h1>
+    
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="card medical-card">
+                <div class="card-body">
+                    <h2 class="card-title">Understanding Autism Spectrum Disorder (ASD)</h2>
+                    <p class="card-text">
+                        Autism Spectrum Disorder (ASD) is a neurodevelopmental disorder characterized by persistent challenges in social communication and interaction, as well as restricted and repetitive behaviors. The term "spectrum" reflects the wide variation in challenges and strengths found among individuals with ASD.
+                    </p>
+                    
+                    <h3 class="mt-4">Key Symptoms and Signs</h3>
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <h4>Social Communication and Interaction</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Difficulty in social-emotional reciprocity</li>
+                                <li class="list-group-item">Abnormalities in eye contact and body language</li>
+                                <li class="list-group-item">Challenges in developing relationships</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Restricted and Repetitive Behaviors</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Repetitive movements or speech</li>
+                                <li class="list-group-item">Insistence on sameness</li>
+                                <li class="list-group-item">Highly fixated interests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card medical-card mt-4">
+                <div class="card-body">
+                    <h2 class="card-title">Treatment and Management</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h4>Behavioral Interventions</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Applied Behavior Analysis (ABA)</li>
+                                <li class="list-group-item">Speech Therapy</li>
+                                <li class="list-group-item">Occupational Therapy</li>
+                                <li class="list-group-item">Social Skills Training</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Support Services</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Parent training programs</li>
+                                <li class="list-group-item">Educational support</li>
+                                <li class="list-group-item">Vocational training</li>
+                                <li class="list-group-item">Community resources</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card medical-card">
+                <div class="card-body">
+                    <h3 class="card-title">Early Intervention</h3>
+                    <div class="alert alert-info">
+                        <h5 class="alert-heading">Why Early Detection Matters</h5>
+                        <ul class="mb-0">
+                            <li>Better developmental outcomes</li>
+                            <li>Earlier access to support services</li>
+                            <li>Improved social and communication skills</li>
+                            <li>Enhanced quality of life</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card medical-card mt-4">
+                <div class="card-body">
+                    <h3 class="card-title">Additional Resources</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-journal-medical me-2"></i>
+                            <a href="https://www.autism-society.org/" target="_blank">Autism Society</a>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-heart-pulse me-2"></i>
+                            <a href="https://www.autismspeaks.org/" target="_blank">Autism Speaks</a>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-people me-2"></i>
+                            <a href="https://www.cdc.gov/ncbddd/autism/" target="_blank">CDC Autism Information</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

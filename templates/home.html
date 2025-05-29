@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        padding: 60px 0;
+        color: #333;
+    }
+    .hero-text-box {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .card-title {
+        color: #007bff;
+        font-weight: 600;
+    }
+    .feature-icon {
+        color: #007bff;
+        margin-right: 10px;
+    }
+    .alert-info {
+        border-left: 4px solid #007bff;
+        background-color: #e3f2fd;
+    }
+    .stat-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s;
+    }
+    .stat-card:hover {
+        transform: scale(1.05);
+    }
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+    .stat-label {
+        font-size: 1rem;
+        color: #555;
+    }
+    .btn-info {
+        background-color: #007bff;
+        border: none;
+        transition: background-color 0.3s;
+    }
+    .btn-info:hover {
+        background-color: #0056b3;
+    }
+    .btn-primary {
+        background-color: #28a745;
+        border: none;
+        transition: background-color 0.3s;
+    }
+    .btn-primary:hover {
+        background-color: #218838;
+    }
+    /* Added spacing below the statistics section */
+    .stats-container {
+        margin-bottom: 60px; /* Adjust this value to increase/decrease the gap */
+    }
+</style>
+
+<section class="hero-section text-center">
+    <div class="container">
+        <div class="hero-text-box">
+            <h1 class="display-4 mb-4">Early Autism Detection</h1>
+            <p class="lead mb-4">Understanding the early signs of autism can make a significant difference in a child's development and access to support services.</p>
+            <a href="{{ url_for('symptoms_start') }}" class="btn btn-info btn-lg">Begin Assessment</a>
+        </div>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Understanding Autism</h2>
+                    <p class="card-text">Autism Spectrum Disorder (ASD) is a developmental condition that affects how a person perceives and socializes with others. Early detection and intervention can significantly improve outcomes.</p>
+
+                    <h3 class="mt-4">About Our Assessment</h3>
+                    <p>Our assessment tool helps identify potential signs of autism by evaluating three key areas:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-eye feature-icon"></i>
+                            <h4>Social Communication</h4>
+                            <p>Assessment of eye contact and non-verbal communication patterns</p>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-repeat feature-icon"></i>
+                            <h4>Behavioral Patterns</h4>
+                            <p>Evaluation of repetitive movements and routine preferences</p>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-people feature-icon"></i>
+                            <h4>Social Interaction</h4>
+                            <p>Analysis of social engagement and relationship building</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">Why Early Detection Matters</h3>
+                    <div class="alert alert-info">
+                        <h5 class="alert-heading">Research shows that early intervention can:</h5>
+                        <ul class="mb-0">
+                            <li>Improve communication skills</li>
+                            <li>Enhance social interaction abilities</li>
+                            <li>Support cognitive development</li>
+                            <li>Lead to better long-term outcomes</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="mt-4">How Our Assessment Works</h4>
+                    <ol class="list-group list-group-numbered mt-3">
+                        <li class="list-group-item">Answer questions about specific behaviors</li>
+                        <li class="list-group-item">Receive a detailed assessment report</li>
+                        <li class="list-group-item">Get recommendations for next steps</li>
+                    </ol>
+
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('symptoms_start') }}" class="btn btn-primary btn-lg">Start Assessment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Section with added spacing -->
+    <div class="row mt-5 stats-container">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Understanding Autism: Key Statistics</h2>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card medical-card">
+                <div class="stat-number">1 in 36</div>
+                <div class="stat-label">Children Diagnosed with ASD</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card medical-card">
+                <div class="stat-number">4:1</div>
+                <div class="stat-label">Male to Female Diagnosis Ratio</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card medical-card">
+                <div class="stat-number">50%</div>
+                <div class="stat-label">Children Diagnosed by Age 4</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card medical-card">
+                <div class="stat-number">Early</div>
+                <div class="stat-label">Intervention is Key</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

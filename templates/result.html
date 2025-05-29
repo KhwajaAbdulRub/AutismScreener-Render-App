@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment Results{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .result-circle {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        transition: transform 0.3s;
+    }
+    .result-circle:hover {
+        transform: scale(1.05);
+    }
+    .result-score {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+    .result-risk {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+    }
+    .result-box {
+        border: none;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        min-height: 300px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .result-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .result-title {
+        color: #007bff;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    .explanation-box {
+        background: #f8f9fa;
+        border-left: 4px solid #007bff;
+    }
+    .feedback-box {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        transition: background-color 0.3s;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container">
+    <h1 class="text-center mb-4">Assessment Results</h1>
+
+    <!-- Top Section: Circular Score and Risk Level -->
+    <div class="result-circle mb-5">
+        <div class="result-score">{{ combined_score }}%</div>
+        <div class="result-risk">{{ risk_level }}</div>
+    </div>
+
+    <!-- Middle Section: Precautions/Therapies and Explanation -->
+    <div class="row g-4 mb-5">
+        <!-- Left Box: Precautions and Therapies -->
+        <div class="col-md-6">
+            <div class="result-box">
+                <h3 class="result-title">Precautions to Take & Therapies to Do at Home</h3>
+                <h5>Precautions to Take</h5>
+                <ul>
+                    <li><strong>Create a Predictable Routine</strong>: Children with change resistance benefit from structured schedules. Use visual timetables to outline daily activities, reducing anxiety from unexpected changes.</li>
+                    <li><strong>Minimize Sensory Overload</strong>: Given touch and sound sensitivities, avoid crowded places or loud noises. Use noise-canceling headphones or soft clothing to reduce sensory discomfort.</li>
+                    <li><strong>Monitor Aggressive Behaviors</strong>: If aggression occurs, identify triggers (e.g., frustration from routine changes) and redirect the child to calming activities like deep breathing or squeezing a stress ball.</li>
+                    <li><strong>Encourage Safe Expression</strong>: For echolalia, encourage meaningful communication by modeling simple sentences the child can use instead of repeating phrases.</li>
+                </ul>
+                <h5>Therapies to Do at Home</h5>
+                <ul>
+                    <li><strong>Social Skills Play</strong>: To improve eye contact and social interaction, engage in turn-taking games like rolling a ball back and forth, gently encouraging eye contact during play.</li>
+                    <li><strong>Sensory Integration Activities</strong>: For touch sensitivity, try sensory bins with rice or beans, letting the child explore textures at their own pace.</li>
+                    <li><strong>Behavioral Reinforcement</strong>: For repetitive behaviors, introduce alternative activities (e.g., drawing patterns) to redirect the behavior while praising positive engagement.</li>
+                    <li><strong>Speech Practice</strong>: To address echolalia, use picture cards to prompt functional speech, such as naming objects or actions, rewarding verbal responses with praise.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Box: Explanation and What to Be Aware Of -->
+        <div class="col-md-6">
+            <div class="result-box explanation-box">
+                <h3 class="result-title">Explanation & What to Be Aware Of</h3>
+                <h5>Explanation</h5>
+                <ul>
+                    <li><strong>What We Found</strong>: You said "Yes" to {{ yes_symptoms|join(', ') if yes_symptoms else 'none' }}. This means your child showed some behaviors we checked. Here’s what you told us:
+                        <ul>
+                            {% for symptom in yes_symptoms %}
+                                <li>
+                                    {% if symptom == 'eye_contact' %}
+                                        Your child has difficulty with eye contact, meaning they might avoid looking at people’s eyes during conversations.
+                                    {% elif symptom == 'social_interaction' %}
+                                        Your child struggles with social interaction, like finding it hard to join play or talk with others.
+                                    {% elif symptom == 'repetitive_behavior' %}
+                                        Your child shows repetitive behaviors, such as repeating actions like hand-flapping or lining up toys.
+                                    {% elif symptom == 'delayed_speech' %}
+                                        Your child has delayed speech, meaning their talking is slower compared to other kids their age.
+                                    {% elif symptom == 'echolalia' %}
+                                        Your child shows echolalia, which means they repeat words or phrases they hear, like from TV.
+                                    {% elif symptom == 'sound_sensitivity' %}
+                                        Your child is sensitive to sounds, getting upset by loud noises like vacuums or sirens.
+                                    {% elif symptom == 'touch_sensitivity' %}
+                                        Your child is sensitive to touch, possibly disliking certain textures or pulling away from hugs.
+                                    {% elif symptom == 'emotional_regulation' %}
+                                        Your child has difficulty with emotional regulation, meaning they might have frequent meltdowns or trouble calming down.
+                                    {% elif symptom == 'change_resistance' %}
+                                        Your child resists changes, getting upset when routines or plans are different.
+                                    {% elif symptom == 'aggression' %}
+                                        Your child shows aggression, such as hitting or throwing things when frustrated.
+                                    {% endif %}
+                                </li>
+                            {% else %}
+                                <li>No specific behaviors were noted as "Yes."</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><strong>Image Analysis</strong>: 
+                        {% if images %}
+                            We analyzed the image you provided to look for additional clues, like signs of distress or specific behaviors. This helped us adjust the overall score.
+                        {% else %}
+                            No image was provided, so we didn’t analyze any images for this assessment.
+                        {% endif %}
+                    </li>
+                    <li><strong>What It Might Mean</strong>: These behaviors could be early signs of autism, a condition where some kids find social situations or changes tricky. For example, avoiding eye contact might mean they feel more comfortable looking away during talks.</li>
+                    <li><strong>Your Child’s Details</strong>: Your child is {{ user_info.age }} years old and {{ user_info.gender }}. Boys are a bit more likely to show these signs (about 4 times more than girls), and age can affect how strong these behaviors seem—older kids like {{ user_info.age }} might show them more as they face bigger social challenges.</li>
+                    <li><strong>Not a Final Answer</strong>: This is just a starting point, not a diagnosis. A doctor or specialist needs to check your child properly to be sure.</li>
+                </ul>
+
+                <h5>What to Be Aware Of</h5>
+                <ul>
+                    <li><strong>Keep an Eye on Behaviors</strong>: Watch for {{ yes_symptoms|join(' and ') if yes_symptoms else 'social or emotional signs' }}. If they keep happening, they might need extra help.</li>
+                    <li><strong>Track Growth Milestones</strong>: Check if your child is meeting speech or social goals. Delays could be a clue to talk about with a doctor.</li>
+                    <li><strong>Seek Expert Help</strong>: This score suggests a small chance of autism traits, but only a professional can confirm it after more tests.</li>
+                    <li><strong>Support Through Changes</strong>: If your child is older like {{ user_info.age }}, growing up might make some behaviors (like avoiding eye contact) more noticeable—be patient and seek advice if needed.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section: Feedback -->
+    <div class="feedback-box">
+        <h3 class="result-title text-center">We Value Your Feedback</h3>
+        <form method="POST">
+            {{ feedback_form.hidden_tag() }}
+            <div class="mb-3">
+                <label for="feedback" class="form-label">Your Feedback:</label>
+                {{ feedback_form.feedback(class="form-control", rows=4) }}
+            </div>
+            <div class="text-center">
+                {{ feedback_form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,181 @@
+/* Healthcare Professional Theme */
+:root {
+    --medical-primary: #0066cc;
+    --medical-secondary: #4a90e2;
+    --medical-success: #28a745;
+    --medical-warning: #ffc107;
+    --medical-danger: #dc3545;
+    --medical-light: #f8f9fa;
+    --medical-dark: #343a40;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding: 20rem 0 6rem 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url("/static/background.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white; /* Make text white */
+}
+
+
+
+/* Medical Cards */
+.medical-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    overflow: hidden;
+}
+
+.medical-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.medical-card .card-title {
+    color: var(--medical-primary);
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--medical-light);
+    color: var(--medical-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Assessment Components */
+.question-card {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background: white;
+}
+
+.progress-indicator {
+    height: 8px;
+    border-radius: 4px;
+    background: #e9ecef;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.progress-indicator .progress-bar {
+    background: var(--medical-primary);
+    transition: width 0.3s ease;
+}
+
+/* Result Display */
+.result-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.risk-high {
+    border: 4px solid var(--medical-danger);
+    color: var(--medical-danger);
+}
+
+.risk-moderate {
+    border: 4px solid var(--medical-warning);
+    color: var(--medical-warning);
+}
+
+.risk-low {
+    border: 4px solid var(--medical-success);
+    color: var(--medical-success);
+}
+
+/* Stats and Charts */
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--medical-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--medical-dark);
+    font-size: 1rem;
+}
+
+/* Resource Section */
+.resource-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.resource-icon {
+    font-size: 2rem;
+    color: var(--medical-primary);
+    margin-bottom: 1rem;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background-color: var(--medical-primary);
+    border-color: var(--medical-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--medical-secondary);
+    border-color: var(--medical-secondary);
+}
+
+/* Form Styling */
+.form-control:focus {
+    border-color: var(--medical-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+.hero-section h1 {
+    position: relative;
+    top: -30px;  /* Move heading up */
+    margin-bottom: 10px;
+    font-size: 6rem; /* Increase font size */
+    font-weight: 500; /* Make bold */
+    color: #d3d3d3; /* Darker text for visibility */
+    text-shadow: 4px 4px 15px rgba(32, 32, 32, 0.8); /* White glow */
+}
+
+.hero-section p {
+    position: relative;
+    top: -20px;
+    font-size: 1.5rem; /* Increase font size */
+    font-weight: 500;
+    color: #444;
+    background: rgb(255, 251, 251, 0.7); /* Light background */
+    padding: 30px 35px;
+    border-radius: 8px; /* Rounded edges */
+    display: inline-block;
+}
+
+

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}User Information{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">User Information</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <form method="POST" action="{{ url_for('user_info_assessment') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            {{ form.age(class="form-control", id="age") }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            {{ form.gender(class="form-control", id="gender") }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="ethnicity" class="form-label">Ethnicity</label>
+                            {{ form.ethnicity(class="form-control", id="ethnicity") }}
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Proceed to Assessment</button>
+                            <a href="{{ url_for('home') }}" class="btn btn-secondary mt-2">Return to Home Page</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
